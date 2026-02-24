@@ -17,4 +17,8 @@ Route::get('/world', function () {
 Route::get('/about', function () {
     return '244107020111 - Kamila Zahwa';
 });
+
+Route::get('/user/{name}', function ($name) {
+    return 'Nama saya ' . $name;
+});
 });
