@@ -9,3 +9,8 @@ Repository untuk praktikum mata kuliah Pemrograman Web Lanjut menggunakan Larave
 | **NIM** | 244107020111 |
 | **Nama** | Kamila Zahwa |
 | **Kelas** | TI-2F |
+
+## List Laporan Jobsheet
+
+- [Laporan Week 1](Report/Week01.md)
+- [Laporan Week 2](Report/Week02.md)
