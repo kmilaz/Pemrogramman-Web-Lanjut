@@ -30,6 +30,6 @@ Route::get('/articles/{id}', function ($articleId) {
     return 'Halaman Artikel dengan ID ' . $articleId;
 });
 
-Route::get('/user/{name?}', function ($name=null) {
+Route::get('/user/{name?}', function ($name='John') {
     return 'Nama saya ' . $name;
 });
