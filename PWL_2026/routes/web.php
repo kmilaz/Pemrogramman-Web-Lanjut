@@ -35,5 +35,5 @@ Route::get('/user/{name?}', function ($name='John') {
 Route::resource('photos', PhotoController::class);
 
 Route::get('/greeting', function () {
-    return view('hello', ['name' => 'Kamila']);
+    return view('blog.hello', ['name' => 'Kamila']);
 });
