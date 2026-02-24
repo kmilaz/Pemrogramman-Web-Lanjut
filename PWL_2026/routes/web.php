@@ -29,4 +29,7 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 Route::get('/articles/{id}', function ($articleId) {
     return 'Halaman Artikel dengan ID ' . $articleId;
 });
+
+Route::get('/user/{name?}', function ($name=null) {
+    return 'Nama saya ' . $name;
 });
