@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class UserController extends Controller
 {
@@ -18,8 +19,10 @@ class UserController extends Controller
     {
         $user = UserModel::firstOrCreate(
             [
-                'username' => 'manager',
-                'nama' => 'Manager',
+                'username' => 'manager22',
+                'nama' => 'Manager Dua Dua',
+                'password' => Hash::make('12345'),
+                'level_id' => 2
             ],
         );
         return view('user', ['data' => $user]);
