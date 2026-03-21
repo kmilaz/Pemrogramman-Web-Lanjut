@@ -10,5 +10,17 @@ class UserForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
+            ->components([
+                TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('password')
+                    ->password()
+                    ->required()
+            ]);
     }
 }
