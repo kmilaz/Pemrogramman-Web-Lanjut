@@ -23,4 +23,9 @@ class Post extends Model
         'published' => 'boolean',
         'published_at' => 'date',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
