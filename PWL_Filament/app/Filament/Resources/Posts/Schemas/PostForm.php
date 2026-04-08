@@ -11,6 +11,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class PostForm
@@ -19,6 +20,8 @@ class PostForm
     {
         return $schema
             ->components([
+                Section::make("Post Details")
+                ->schema([
                 TextInput::make("title")->required(),
                 TextInput::make("slug")->required(),
                 Select::make("category_id")
@@ -27,6 +30,7 @@ class PostForm
                     ->searchable(),
                 ColorPicker::make("color"),
                 MarkdownEditor::make("content"),
+                ]),
                 //RichEditor::make("content"),
                 FileUpload::make("image")
                 ->disk("public")
@@ -34,6 +38,6 @@ class PostForm
                 TagsInput::make("tags"),
                 Checkbox::make("published"),
                 DateTimePicker::make("published_at"),
-            ])->columns(3);
+            ])->columns(2);
     }
 }
