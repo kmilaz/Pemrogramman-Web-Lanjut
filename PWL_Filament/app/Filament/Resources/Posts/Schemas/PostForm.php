@@ -25,6 +25,7 @@ class PostForm
                     ->relationship("category", "name")
                     ->preload()
                     ->searchable(),
+                ColorPicker::make("color"),
             ]);
     }
 }
