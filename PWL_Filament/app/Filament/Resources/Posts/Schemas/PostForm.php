@@ -11,6 +11,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -34,7 +35,10 @@ class PostForm
                     ->searchable(),
                 ColorPicker::make("color"),
                 MarkdownEditor::make("content"),
-                ]) -> columnSpanFull(),
+                ]),
+
+                // Grouping fields into 2 columns
+                Group::make([
 
                 // section 2 - image
                 Section::make("Image Upload")
@@ -49,7 +53,9 @@ class PostForm
                 ->schema([
                     TagsInput::make("tags"),
                     Checkbox::make("published"),
+                ])->columns(2),
                     DateTimePicker::make("published_at"),
+                
                 ]),
             ])->columns(2);
     }
