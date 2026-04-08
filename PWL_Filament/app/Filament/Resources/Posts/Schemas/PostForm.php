@@ -19,6 +19,8 @@ class PostForm
     {
         return $schema
             ->components([
+                TextInput::make("title")->required(),
+                TextInput::make("slug")->required(),
             ]);
     }
 }
