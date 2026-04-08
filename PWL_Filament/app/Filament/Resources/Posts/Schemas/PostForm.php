@@ -27,19 +27,23 @@ class PostForm
                 // -> icon(Heroicon::RocketLaunch)
                 -> icon("heroicon-o-document-text")
                 ->schema([
-                TextInput::make("title")->required(),
-                TextInput::make("slug")->required(),
-                Select::make("category_id")
-                    ->relationship("category", "name")
-                    ->preload()
-                    ->searchable(),
-                ColorPicker::make("color"),
-                MarkdownEditor::make("content"),
-                ]),
-
+                    // Grouping fields into 2 columns
+                    Group::make([
+                        TextInput::make("title")->required(),
+                        TextInput::make("slug")->required(),
+                        Select::make("category_id")
+                        ->relationship("category", "name")
+                        ->preload()
+                        ->searchable(),
+                        ColorPicker::make("color"),
+                    ])->columns(2),
+                        
+                        MarkdownEditor::make("content"),
+                    ])->columnSpan(2),
+                
                 // Grouping fields into 2 columns
                 Group::make([
-
+                
                 // section 2 - image
                 Section::make("Image Upload")
                 ->schema([
@@ -53,10 +57,11 @@ class PostForm
                 ->schema([
                     TagsInput::make("tags"),
                     Checkbox::make("published"),
-                ])->columns(2),
                     DateTimePicker::make("published_at"),
-                
                 ]),
-            ])->columns(2);
+                
+                ])->columnSpan(1),
+                
+            ])->columns(3);
     }
 }
