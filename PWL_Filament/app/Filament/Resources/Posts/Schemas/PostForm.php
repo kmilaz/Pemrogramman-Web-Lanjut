@@ -30,7 +30,7 @@ class PostForm
                     // Grouping fields into 2 columns
                     Group::make([
                         TextInput::make("title")
-                            ->required()
+                            ->rules("required")
                             ->maxLength(255),
                         TextInput::make("slug")->required(),
                         Select::make("category_id")
