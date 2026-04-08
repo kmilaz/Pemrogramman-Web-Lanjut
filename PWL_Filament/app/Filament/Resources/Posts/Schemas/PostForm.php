@@ -33,6 +33,7 @@ class PostForm
                 ->directory("posts"),
                 TagsInput::make("tags"),
                 Checkbox::make("published"),
+                DateTimePicker::make("published_at"),
             ]);
     }
 }
