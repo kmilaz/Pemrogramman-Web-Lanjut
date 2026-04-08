@@ -26,6 +26,8 @@ class PostForm
                     ->preload()
                     ->searchable(),
                 ColorPicker::make("color"),
+                MarkdownEditor::make("content"),
+                //RichEditor::make("content"),
             ]);
     }
 }
