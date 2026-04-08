@@ -28,6 +28,9 @@ class PostForm
                 ColorPicker::make("color"),
                 MarkdownEditor::make("content"),
                 //RichEditor::make("content"),
+                FileUpload::make("image")
+                ->disk("public")
+                ->directory("posts"),
             ]);
     }
 }
