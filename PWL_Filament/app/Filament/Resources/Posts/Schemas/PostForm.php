@@ -32,6 +32,7 @@ class PostForm
                 ->disk("public")
                 ->directory("posts"),
                 TagsInput::make("tags"),
+                Checkbox::make("published"),
             ]);
     }
 }
