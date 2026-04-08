@@ -21,6 +21,10 @@ class PostForm
             ->components([
                 TextInput::make("title")->required(),
                 TextInput::make("slug")->required(),
+                Select::make("category_id")
+                    ->relationship("category", "name")
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 }
