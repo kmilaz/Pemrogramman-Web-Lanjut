@@ -29,12 +29,14 @@ class PostForm
                 ->schema([
                     // Grouping fields into 2 columns
                     Group::make([
-                        TextInput::make("title")->required(),
+                        TextInput::make("title")
+                            ->required()
+                            ->maxLength(255),
                         TextInput::make("slug")->required(),
                         Select::make("category_id")
-                        ->relationship("category", "name")
-                        ->preload()
-                        ->searchable(),
+                            ->relationship("category", "name")
+                            ->preload()
+                            ->searchable(),
                         ColorPicker::make("color"),
                     ])->columns(2),
                         
@@ -61,7 +63,7 @@ class PostForm
                 ]),
                 
                 ])->columnSpan(1),
-                
+
             ])->columns(3);
     }
 }
