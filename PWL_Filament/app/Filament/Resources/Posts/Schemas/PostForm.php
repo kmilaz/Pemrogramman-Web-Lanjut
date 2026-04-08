@@ -31,6 +31,7 @@ class PostForm
                 FileUpload::make("image")
                 ->disk("public")
                 ->directory("posts"),
+                TagsInput::make("tags"),
             ]);
     }
 }
