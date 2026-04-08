@@ -20,7 +20,11 @@ class PostForm
     {
         return $schema
             ->components([
+                // section 1 - post details
                 Section::make("Post Details")
+                -> description("Fill in the details of the post")
+                // -> icon(Heroicon::RocketLaunch)
+                -> icon("heroicon-o-document-text")
                 ->schema([
                 TextInput::make("title")->required(),
                 TextInput::make("slug")->required(),
@@ -30,7 +34,7 @@ class PostForm
                     ->searchable(),
                 ColorPicker::make("color"),
                 MarkdownEditor::make("content"),
-                ]),
+                ]) -> columnSpanFull(),
 
                 // section 2 - image
                 Section::make("Image Upload")
