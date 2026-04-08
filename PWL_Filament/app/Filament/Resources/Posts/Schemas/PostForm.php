@@ -31,13 +31,22 @@ class PostForm
                 ColorPicker::make("color"),
                 MarkdownEditor::make("content"),
                 ]),
-                //RichEditor::make("content"),
-                FileUpload::make("image")
-                ->disk("public")
-                ->directory("posts"),
-                TagsInput::make("tags"),
-                Checkbox::make("published"),
-                DateTimePicker::make("published_at"),
+
+                // section 2 - image
+                Section::make("Image Upload")
+                ->schema([
+                    FileUpload::make("image")
+                        ->disk("public")
+                        ->directory("posts"),
+                ]),
+
+                // section 3 - meta
+                Section::make("Meta Information")
+                ->schema([
+                    TagsInput::make("tags"),
+                    Checkbox::make("published"),
+                    DateTimePicker::make("published_at"),
+                ]),
             ])->columns(2);
     }
 }
