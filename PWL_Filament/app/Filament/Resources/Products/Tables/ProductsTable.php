@@ -21,6 +21,10 @@ class ProductsTable
                 TextColumn::make("sku"),
                 TextColumn::make("price"),
                 TextColumn::make("stock"),
+                TextColumn::make("is_active")
+                    ->badge()
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'Aktif' : 'Tidak Aktif')
+                    ->color(fn (bool $state): string => $state ? 'success' : 'danger'),
                 ImageColumn::make("image")
                     ->disk("public"),
             ])
