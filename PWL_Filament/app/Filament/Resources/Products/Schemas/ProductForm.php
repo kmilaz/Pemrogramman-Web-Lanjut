@@ -29,6 +29,17 @@ class ProductForm
                             ])->columns(2),
                             MarkdownEditor::make('description')
                         ]),
+                    Step::make('Product Price and Stock')
+                        ->description('Isi Harga Produk')
+                        ->schema([
+                            Group::make([
+                                TextInput::make('price')
+                                    ->required(),
+                                TextInput::make('stock')
+                                    ->required(),
+                            ])->columns(2),
+                            MarkdownEditor::make('description')
+                        ]),
                 ])
                 ->columnSpanFull(),
             ]);
