@@ -23,6 +23,7 @@ class ProductForm
                 Wizard::make([
                     Step::make("Product Info")
                         ->description('Isi Informasi Produk')
+                        ->icon('heroicon-o-information-circle')
                         ->schema([
                             Group::make([
                                 TextInput::make('name')
@@ -34,10 +35,12 @@ class ProductForm
                         ]),
                     Step::make('Product Price and Stock')
                         ->description('Isi Harga Produk')
+                        ->icon('heroicon-o-currency-dollar')
                         ->schema([
                             Group::make([
                                 TextInput::make('price')
                                     ->numeric()
+                                    ->rule('gt:0')
                                     ->required(),
                                 TextInput::make('stock')
                                     ->required(),
@@ -46,6 +49,7 @@ class ProductForm
                         ]),
                     Step::make('Media and Status')
                         ->description('Isi Gambar Produk')
+                        ->icon('heroicon-o-photo')
                         ->schema([
                             FileUpload::make('image')
                                 ->disk('public')
