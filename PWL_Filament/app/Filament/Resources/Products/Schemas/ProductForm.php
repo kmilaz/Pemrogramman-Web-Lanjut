@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use Dom\Text;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Group;
@@ -39,6 +41,15 @@ class ProductForm
                                     ->required(),
                             ])->columns(2),
                             MarkdownEditor::make('description')
+                        ]),
+                    Step::make('Media and Status')
+                        ->description('Isi Gambar Produk')
+                        ->schema([
+                            FileUpload::make('image')
+                                ->disk('public')
+                                ->directory('products'),
+                            Checkbox::make('is_active'),
+                            Checkbox::make('is_featured'),
                         ]),
                 ])
                 ->columnSpanFull(),
