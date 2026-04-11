@@ -17,6 +17,20 @@ class ProductForm
     {
         return $schema
             ->components([
+                Wizard::make([
+                    Step::make("Product Info")
+                        ->description('Isi Informasi Produk')
+                        ->schema([
+                            Group::make([
+                                TextInput::make('name')
+                                    ->required(),
+                                TextInput::make('sku')
+                                    ->required(),
+                            ])->columns(2),
+                            MarkdownEditor::make('description')
+                        ]),
+                ])
+                ->columnSpanFull(),
             ]);
     }
 }
