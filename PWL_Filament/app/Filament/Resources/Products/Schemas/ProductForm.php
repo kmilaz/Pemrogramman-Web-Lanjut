@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use Dom\Text;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
@@ -52,7 +53,14 @@ class ProductForm
                             Checkbox::make('is_featured'),
                         ]),
                 ])
-                ->columnSpanFull(),
+                ->columnSpanFull()
+                ->submitAction(
+                    Action::make('save')
+                    ->label('Save Product')
+                    ->button()
+                    ->color('primary')
+                    ->submit('save')
+                )
             ]);
     }
 }
