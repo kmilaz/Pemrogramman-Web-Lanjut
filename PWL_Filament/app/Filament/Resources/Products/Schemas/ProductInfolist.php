@@ -42,21 +42,18 @@ class ProductInfolist
                                 ->date('d M Y')
                                 ->color('info'),
                         ]),
+                    Tab::make('Product Price and Stock')
+                        ->schema([
+                            TextEntry::make('price')
+                                ->label('Product Price')
+                                ->formatStateUsing(fn ($state): string => 'Rp ' . number_format((float) $state, 0, ',', '.'))
+                                ->weight('bold')                                    ->color('primary')
+                                ->icon('heroicon-s-currency-dollar'),
+                            TextEntry::make('stock')
+                                ->label('Product Stock')
+                                ->icon('heroicon-o-cube'),
+                        ])
                     ])->columnSpanFull(),
-                Section::make('Product Price and Stock')
-                    ->description('')
-                    ->schema([
-                        TextEntry::make('price')
-                            ->label('Product Price')
-                            ->formatStateUsing(fn ($state): string => 'Rp ' . number_format((float) $state, 0, ',', '.'))
-                            ->weight('bold')
-                            ->color('primary')
-                            ->icon('heroicon-s-currency-dollar'),
-                        TextEntry::make('stock')
-                            ->label('Product Stock')
-                            ->icon('heroicon-o-cube'),
-                    ])
-                ->columnSpanFull(),
                 Section::make('Image and Status')
                     ->description('')
                     ->schema([
