@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use Dom\Text;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -41,7 +42,24 @@ class ProductInfolist
                         TextEntry::make('stock')
                             ->label('Product Stock'),
                     ])
-                ->columnSpanFull()
+                ->columnSpanFull(),
+                Section::make('Image and Status')
+                    ->description('')
+                    ->schema([
+                        ImageEntry::make('image')
+                            ->label('Product Image')
+                            ->disk('public'),
+                        TextEntry::make('price')
+                            ->label('Product Price')
+                            ->weight('bold')
+                            ->color('primary')
+                            ->icon('heroicon-s-currency-dollar'),
+                        TextEntry::make('stock')
+                            ->label('Product Stock')
+                            ->weight('bold')
+                            ->color('primary'),
+                    ])
+                ->columnSpanFull(),
             ]);
     }
 }
