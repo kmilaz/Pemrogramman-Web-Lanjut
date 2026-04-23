@@ -52,33 +52,31 @@ class ProductInfolist
                             TextEntry::make('stock')
                                 ->label('Product Stock')
                                 ->icon('heroicon-o-cube'),
+                        ]),
+                    Tab::make('Image and Status')
+                        ->schema([
+                            ImageEntry::make('image')
+                                ->label('Product Image')
+                                ->disk('public'),
+                            TextEntry::make('price')
+                                ->label('Product Price')
+                                ->formatStateUsing(fn ($state): string => 'Rp ' . number_format((float) $state, 0, ',', '.'))
+                                ->weight('bold')
+                                ->color('primary')
+                                ->icon('heroicon-s-currency-dollar'),
+                            TextEntry::make('stock')
+                                ->label('Product Stock')
+                                ->icon('heroicon-o-cube')
+                                ->weight('bold')
+                                ->color('primary'),
+                            IconEntry::make('is_active')
+                                ->label('Is Active?')
+                                ->boolean(),
+                            IconEntry::make('is_featured')
+                                ->label('Is Featured?')
+                                ->boolean(),
                         ])
                     ])->columnSpanFull(),
-                Section::make('Image and Status')
-                    ->description('')
-                    ->schema([
-                        ImageEntry::make('image')
-                            ->label('Product Image')
-                            ->disk('public'),
-                        TextEntry::make('price')
-                            ->label('Product Price')
-                            ->formatStateUsing(fn ($state): string => 'Rp ' . number_format((float) $state, 0, ',', '.'))
-                            ->weight('bold')
-                            ->color('primary')
-                            ->icon('heroicon-s-currency-dollar'),
-                        TextEntry::make('stock')
-                            ->label('Product Stock')
-                            ->icon('heroicon-o-cube')
-                            ->weight('bold')
-                            ->color('primary'),
-                        IconEntry::make('is_active')
-                            ->label('Is Active?')
-                            ->boolean(),
-                        IconEntry::make('is_featured')
-                            ->label('Is Featured?')
-                            ->boolean(),
-                    ])
-                ->columnSpanFull(),
             ]);
     }
 }
