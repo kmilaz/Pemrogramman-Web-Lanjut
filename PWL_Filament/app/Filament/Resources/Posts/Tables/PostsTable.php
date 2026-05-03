@@ -29,7 +29,7 @@ class PostsTable
                     ->label("Created At")
                     ->dateTime()
                     ->sortable(),
-            ])->defaultSort("created_at", "asc")
+            ])->defaultSort("created_at", "desc")
             ->filters([
                 //
             ])
