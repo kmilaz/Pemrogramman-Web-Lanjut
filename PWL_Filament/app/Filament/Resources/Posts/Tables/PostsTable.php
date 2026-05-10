@@ -5,9 +5,11 @@ namespace App\Filament\Resources\Posts\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 
 class PostsTable
@@ -34,7 +36,12 @@ class PostsTable
                     ->sortable(),
             ])->defaultSort("created_at", "desc")
             ->filters([
-                //
+                Filter::make("created_at")
+                    ->label("Creation Date")
+                        ->schema([
+                            DatePicker::make("created_at")
+                                ->label("Select Date : "),
+                        ])
             ])
             ->recordActions([
                 EditAction::make(),
