@@ -42,6 +42,14 @@ class PostsTable
                             DatePicker::make("created_at")
                                 ->label("Select Date : "),
                         ])
+                        ->query(function ($query, $data) {
+                            return $query
+                                ->when(
+                                    $data["created_at"],
+                                    fn ($query, $date) => $query->whereDate("created_at", $date),
+                                );
+                        }),
+                    
             ])
             ->recordActions([
                 EditAction::make(),
