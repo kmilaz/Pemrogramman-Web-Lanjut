@@ -20,7 +20,8 @@ class PostsTable
                     ->sortable()
                     ->searchable(),
                 TextColumn::make("slug")
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make("category.name")
                     ->sortable(),
                 ColorColumn::make("color"),
