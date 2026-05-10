@@ -23,7 +23,8 @@ class PostsTable
                     ->sortable()
                     ->searchable(),
                 TextColumn::make("category.name")
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 ColorColumn::make("color"),
                 ImageColumn::make("image")
                 ->disk("public"),
