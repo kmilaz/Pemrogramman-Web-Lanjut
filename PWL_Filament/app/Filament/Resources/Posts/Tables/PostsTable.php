@@ -38,6 +38,8 @@ class PostsTable
                     ->label("Created At")
                     ->dateTime()
                     ->sortable(),
+                TextColumn::make("tags")
+                    ->label("tags"),
             ])->defaultSort("created_at", "desc")
             ->filters([
                 Filter::make("created_at")
