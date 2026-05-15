@@ -79,6 +79,7 @@ class PostsTable
                 Action::make("togglePublished")
                     ->label(fn ($record): string => $record->published ? "Unpublish" : "Publish")
                     ->icon(fn ($record): string => $record->published ? "heroicon-o-x-circle" : "heroicon-o-check-circle")
+                    ->requiresConfirmation()
                     ->action(function ($record) {
                         $record->update(["published" => ! $record->published]);
                     })
