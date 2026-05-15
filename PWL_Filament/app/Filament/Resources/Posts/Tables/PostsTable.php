@@ -40,7 +40,8 @@ class PostsTable
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make("tags")
-                    ->label("tags"),
+                    ->label("tags")
+                    ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make("published")
                     ->boolean()
                     ->label("Published"),
