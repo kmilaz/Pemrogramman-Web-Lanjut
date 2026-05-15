@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\ColorColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -40,6 +41,9 @@ class PostsTable
                     ->sortable(),
                 TextColumn::make("tags")
                     ->label("tags"),
+                IconColumn::make("published")
+                    ->boolean()
+                    ->label("Published"),
             ])->defaultSort("created_at", "desc")
             ->filters([
                 Filter::make("created_at")
