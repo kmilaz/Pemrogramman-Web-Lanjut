@@ -76,16 +76,12 @@ class PostsTable
                 ReplicateAction::make(),
                 EditAction::make(),
                 DeleteAction::make(),
-                Action::make("status")
-                ->label("Status Change")
-                ->icon("heroicon-o-check-circle")
-                ->schema([
-                    Checkbox::make("published")
-                    ->default(fn($record): bool => $record->published),
-                ])
-                ->action(function ($record, $data) {
-                    $record->update(["published" => $data["published"]]);
-                })
+                Action::make("togglePublished")
+                    ->label(fn ($record): string => $record->published ? "Unpublish" : "Publish")
+                    ->icon(fn ($record): string => $record->published ? "heroicon-o-x-circle" : "heroicon-o-check-circle")
+                    ->action(function ($record) {
+                        $record->update(["published" => ! $record->published]);
+                    })
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
