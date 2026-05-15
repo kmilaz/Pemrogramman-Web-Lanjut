@@ -19,6 +19,9 @@ class PostsTable
     {
         return $table
             ->columns([
+                TextColumn::make("id")
+                    ->label("ID")
+                    ->sortable(),
                 TextColumn::make("title")
                     ->sortable()
                     ->searchable(),
