@@ -22,7 +22,7 @@ class PostsTable
             ->columns([
                 TextColumn::make("id")
                     ->label("ID")
-                    ->sortable(),
+                    ->toggleable(),
                 TextColumn::make("title")
                     ->sortable()
                     ->searchable(),
