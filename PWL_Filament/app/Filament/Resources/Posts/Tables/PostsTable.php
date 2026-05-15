@@ -22,15 +22,18 @@ class PostsTable
             ->columns([
                 TextColumn::make("id")
                     ->label("ID")
-                    ->toggleable(),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make("title")
                     ->sortable()
+                    ->toggleable()
                     ->searchable(),
                 TextColumn::make("slug")
                     ->sortable()
+                    ->toggleable()
                     ->searchable(),
                 TextColumn::make("category.name")
                     ->sortable()
+                    ->toggleable()
                     ->searchable(),
                 ColorColumn::make("color"),
                 ImageColumn::make("image")
